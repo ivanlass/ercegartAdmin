@@ -4,7 +4,7 @@ import logo from '../images/logo.png'
 function Hero() {
   return (
     <div className="hero">
-      <div className="hero-bg"></div>
+
       <div className="hero-text-wrapper">
         <img className="logo" src={logo} alt="logo" style={{ width: 450 }} />
         <h1 className="hero-title">ERCEG ART STUDIO</h1>

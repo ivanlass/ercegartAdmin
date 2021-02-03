@@ -20,11 +20,7 @@ function Navigation() {
             <Nav.Link href="#features">HOME</Nav.Link>
             <Nav.Link href="#pricing">NAMJESTAJ</Nav.Link>
             <Nav.Link href="#pricing">CONTACT</Nav.Link>
-            <NavDropdown title="ENG" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">ENG</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">HR</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">DE</NavDropdown.Item>
-            </NavDropdown>
+
 
           </Nav>
 
