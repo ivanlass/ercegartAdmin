@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Stoke:wght@300&display=swap');
+
+body, html {
+    background: #1E1F1B;
+}
+
+.card-item {
+    min-width: 450px;
+    height: 350px;
+    margin:40px 20px;
+    padding: 40px 20px;
+    border-radius: 3px;
+    border: 1px solid #45B8E9;
+    background: #272824;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.card-item:hover {
+    box-shadow: 0px 10px 60px -40px #45B8E9;
+}
+
+
+
+.card-picture {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: skew(0deg, -7deg);
+    transition: all 0.2s ease;
+}
+
+.card-item:hover .card-picture {
+    transform: skew(0deg, 0deg);
+    
+}
+
+
+.card-info-wrapper {
+    display: flex;
+    color: #CACACA;
+    margin-top: 50px;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: 'Stoke', serif;
+}
+
+
+.gallery {
+    background: #1E1F1B;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 100px;
+    margin-top: -60px;
+}
+
+
+
+.product {
+    height: 100%;
+    padding-top: 60px;
+    margin-top: -60px;
+    background: #1E1F1B;
+    font-family: 'Stoke', serif;
+    color: #CACACA;
+}
+
+.carousel-img {
+    height: 500px!important;
+    object-fit: cover;
+}
+
+.product-info-sm{
+    font-size: 29px;
+    text-align: left;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: 300;
+    color: #888888;
+}
+
+.product-info-big {
+    text-align: left;
+}
+
+.materials-title {
+    font-size: 20px;
+}
+
+.materials-item{
+    display: inline-block;
+    padding-right:10px;
+    font-size: 16px;
+    background: -webkit-linear-gradient(#47BCEE, #207EA6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: blur-out-contract 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: blur-out-contract 2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.product-about {
+	-webkit-animation: puff-in-ver 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+	        animation: puff-in-ver 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+
+
+
+@media only screen and (max-width: 660px) {
+
+    .card-item {
+        min-width: 300px;
+        height: 350px;
+        border-radius: 3px;
+        border: 1px solid #45B8E9;
+        background: #272824;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+  }
+
+
+  @-webkit-keyframes blur-out-contract {
+      0% {
+        letter-spacing: -0.5em;
+        -webkit-filter: blur(12px) opacity(0%);
+                filter: blur(12px) opacity(0%);
+      }
+    100% {
+      -webkit-filter: blur(0.01);
+              filter: blur(0.01);
+    }
+  }
+  @keyframes blur-out-contract {
+      0% {
+        letter-spacing: -0.5em;
+        -webkit-filter: blur(12px) opacity(0%);
+                filter: blur(12px) opacity(0%);
+      }
+    100% {
+      -webkit-filter: blur(0.01);
+              filter: blur(0.01);
+    }
+  }
+
+
+
+  @-webkit-keyframes puff-in-ver {
+    0% {
+      -webkit-transform: scaleY(2);
+              transform: scaleY(2);
+      -webkit-filter: blur(4px);
+              filter: blur(4px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes puff-in-ver {
+    0% {
+      -webkit-transform: scaleY(2);
+              transform: scaleY(2);
+      -webkit-filter: blur(4px);
+              filter: blur(4px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  
+  
+
+  
