@@ -10,11 +10,10 @@ function Hero() {
         <img className="logo" src={logo} alt="logo" style={{ width: 450 }} />
 
         <p className="hero-txt">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco
+        "Sreća - to je biti s prirodom, gledati je i s njom govoriti."
+            <p className="">- Lav Nikolajevič Tolstoj</p>
             </p>
-        <Link to="/furniture">
+        <Link to="/abonos">
           <button className="btn-seemore">SEE GALLERY</button>
         </Link>
       </div>

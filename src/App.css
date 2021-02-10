@@ -10,10 +10,14 @@
 }
 
 body, html {
-  width: 100vw!important;
-  overflow-x: hidden;
+  background-color: #1E1F1B;
 }
 
+.minus-padding {
+  margin-top: -60px;
+  padding-top: 100px;
+  background-color: #1E1F1B;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -75,8 +79,7 @@ body, html {
 .hero {
   margin-top: -70px;
   background: url(./images/hero.jpg);
-  height: 100vh;
-  width: 100vw;
+  height: 90vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -168,7 +171,7 @@ body, html {
 }
 
 .about-txt {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .img-about {
@@ -214,7 +217,6 @@ body, html {
 
 
 .drvece {
-  margin-top: -260px;
   margin-bottom: -25px;
 }
 
@@ -244,6 +246,50 @@ margin-left: -50px;
 }
 
 
+
+
+
+/* SEPARATOR ********************************************************************* */
+
+
+
+.separator-component{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 100px;
+  margin-top: -60px;
+  background-color: #1E1F1B;
+}
+
+.separator-item {
+  display: flex;
+  justify-content: center;
+}
+
+a:hover {
+  text-decoration: none!important;
+}
+
+.separator-first {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  font-size: 40px;
+  color: white;
+  border: 1px solid #45B8E9;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.separator-label {
+  background-color: rgba(0, 0, 0, 0.179);
+}
+
+
+
+
+
+
 @media only screen and (max-width: 1444px) {
   .hero-text-wrapper {
     width: 90%;
@@ -253,7 +299,6 @@ margin-left: -50px;
   margin-top: -40px;
   position: relative;
   z-index: 2;
-  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
 
 }
@@ -261,7 +306,7 @@ margin-left: -50px;
 
 @media only screen and (max-width: 1040px) {
   .about-txt {
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .aboutus {
@@ -269,6 +314,7 @@ margin-left: -50px;
 }
 .quote-txt {
   font-size: 25px;
+  padding-top: 140px;
 }
 
 .quote-component {
@@ -314,8 +360,18 @@ margin-left: -50px;
 
 @media only screen and (max-width: 500px) {
 
+  .separator-component{
+    flex-direction:column;
+    justify-content: space-around;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 
-  
+  .separator-first {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+  }  
   .hero-text-wrapper {
     top:50%;
   }
@@ -369,10 +425,6 @@ margin-left: -50px;
     margin-bottom: 50px;
   }
 }
-
-
-
-
 
 
 

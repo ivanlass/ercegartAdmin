@@ -1,16 +1,9 @@
 import React from 'react'
 import Card from '../components/Card'
 
-function GalleryList() {
+function AbonosStolovi() {
   return (
     <div className="gallery">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
         <Card />
         <Card />
         <Card />
@@ -19,4 +12,4 @@ function GalleryList() {
   );
 }
 
-export default GalleryList;
+export default AbonosStolovi;

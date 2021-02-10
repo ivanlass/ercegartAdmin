@@ -1,6 +1,4 @@
-import logo from '../logo.svg';
 import '../App.css';
-import Navigation from '../components/Navigation'
 import Hero from '../components/Hero';
 import Aboutus from '../components/Aboutus';
 import Quote from '../components/Quote'
@@ -10,9 +8,9 @@ function Home() {
   return (
     <div className="App">
       <Hero />
-      <Aboutus />
-      <Quote />
       <Abonos />
+      <Quote />
+      <Aboutus />
 
     </div>
   );
