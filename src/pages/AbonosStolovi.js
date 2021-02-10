@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Card from '../components/Card'
+import axios from 'axios'
 
 function AbonosStolovi() {
   const [isOpen, setIsopen] = useState(false)
@@ -19,17 +20,27 @@ function AbonosStolovi() {
     for (let i = 0; i < slike.length; i++) {
       formData.append("images", slike[i])
     }
-    formData.append("name", name)
+
+    console.log(slike)
+    formData.append('name', name)
     formData.append("materijali", materijali)
     formData.append("opis", opis)
-    console.log(formData)
-    // const res = axios.post('http://localhost:5000/posts/add', formData, {
-    //     headers: {
-    //         'Content-Type': 'multipart/form/data'
-    //     }
-    // }).then(response => setPosts(response.data))
-    //     .catch(error => console.log(error))
-
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    };
+    fetch('http://localhost:5000/products/add', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log('Success:', result);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 
 
@@ -37,7 +48,7 @@ function AbonosStolovi() {
     <>
       <button className="open-btn" onClick={toggleForm}>Dodaj</button>
       {isOpen &&
-        <form className="form" onSubmit={sendData}>
+        <form className="form" onSubmit={sendData} >
           <button className="close-btn" onClick={toggleForm}>&#10005;</button>
           <div className="all-inputs">
             <input className="input" placeholder="Ime proizvoda" onChange={e => setName(e.target.value)} />
