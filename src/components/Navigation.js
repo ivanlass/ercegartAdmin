@@ -15,46 +15,52 @@ import Separator from '../components/Separator'
 import SeparatorUnikatniNamjestaj from '../components/SeparatorUnikatniNamjestaj'
 import SeparatorSlike from '../components/SeparatorSlike'
 import AbonosUkras from './AbonosUkras'
-
+import UnikatneGarniture from '../pages/UnikatneGarniture';
+import UnikatniStolovi from '../pages/UnikatniStolovi';
+import UnikatKlupe from '../pages/UnikatKlupe'
+import UnikatUkras from '../pages/UnikatUkras'
+import UljeNaPlatnu from '../pages/UljeNaPlatnu';
+import AkrilNaPlatnu from '../pages/AkrilNaPlatnu'
+import OstaleSlike from '../pages/OstaleSlike';
 
 function Navigation() {
   return (
     <div className="App">
       <Router>
-      <Navbar collapseOnSelect expand="lg" className="navigation" >
+        <Navbar collapseOnSelect expand="lg" className="navigation" >
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto ">
-          </Nav>
-          <Nav className="navigacija">
-          
-            <Nav.Link ><Link className="navbar-nav nav-link" to="/">Home</Link></Nav.Link>
-            <Nav.Link ><Link className="navbar-nav nav-link" to="/abonos">Abonos</Link></Nav.Link>
-            <Nav.Link ><Link className="navbar-nav nav-link" to="/unikatni">Unikatni drveni namještaj</Link></Nav.Link>
-            <Nav.Link ><Link className="navbar-nav nav-link" to="/slike">Umjetničke slike</Link></Nav.Link>
-            <Nav.Link ><Link className="navbar-nav nav-link" to="/contact">Kontakt</Link></Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto ">
+            </Nav>
+            <Nav className="navigacija">
+
+              <Nav.Link ><Link className="navbar-nav nav-link" to="/">Home</Link></Nav.Link>
+              <Nav.Link ><Link className="navbar-nav nav-link" to="/abonos">Abonos</Link></Nav.Link>
+              <Nav.Link ><Link className="navbar-nav nav-link" to="/unikatni">Unikatni drveni namještaj</Link></Nav.Link>
+              <Nav.Link ><Link className="navbar-nav nav-link" to="/slike">Umjetničke slike</Link></Nav.Link>
+              <Nav.Link ><Link className="navbar-nav nav-link" to="/contact">Kontakt</Link></Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
 
 
 
-      <Switch>
+        <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          
+
           <Route exact path="/abonos">
-            <Separator first="/abonos/stolovi" second="/abonos/ostalo"/>
+            <Separator first="/abonos/stolovi" second="/abonos/ostalo" />
           </Route>
 
-          <Route  path="/abonos/stolovi">
-          <AbonosStolovi />
+          <Route path="/abonos/stolovi">
+            <AbonosStolovi />
           </Route>
 
-          <Route  path="/abonos/ostalo">
-          <AbonosUkras />
+          <Route path="/abonos/ostalo">
+            <AbonosUkras />
           </Route>
 
 
@@ -63,27 +69,27 @@ function Navigation() {
 
 
           <Route exact path="/unikatni">
-            <SeparatorUnikatniNamjestaj 
-                first="/unikatni/garniture" 
-                second="/unikatni/stolovi" 
-                third="/unikatni/klupe" 
-                fourth="/unikatni/ukrasi"/>
+            <SeparatorUnikatniNamjestaj
+              first="/unikatni/garniture"
+              second="/unikatni/stolovi"
+              third="/unikatni/klupe"
+              fourth="/unikatni/ukrasi" />
           </Route>
 
-          <Route  path="/unikatni/garniture">
-            <p>unikat vrtne</p>
+          <Route path="/unikatni/garniture">
+            <UnikatneGarniture />
           </Route>
 
-          <Route  path="/unikatni/stolovi">
-            <p>unikat stolovi</p>
+          <Route path="/unikatni/stolovi">
+            <UnikatniStolovi />
           </Route>
 
-          <Route  path="/unikatni/klupe">
-            <p>unikat klupe</p>
+          <Route path="/unikatni/klupe">
+            <UnikatKlupe />
           </Route>
 
-          <Route  path="/unikatni/ukrasi">
-            <p>unikat ukrasi</p>
+          <Route path="/unikatni/ukrasi">
+            <UnikatUkras />
           </Route>
 
 
@@ -91,20 +97,20 @@ function Navigation() {
 
 
           <Route exact path="/slike">
-          <SeparatorSlike first="/slike/ulje" second="/slike/akril" third="/slike/ostalo"/>
+            <SeparatorSlike first="/slike/ulje" second="/slike/akril" third="/slike/ostalo" />
           </Route>
 
-          <Route  path="/slike/ulje">
-            <p>ulje</p>
+          <Route path="/slike/ulje">
+            <UljeNaPlatnu />
           </Route>
 
-          <Route  path="/slike/akril">
-            <p>akril</p>
+          <Route path="/slike/akril">
+            <AkrilNaPlatnu />
           </Route>
 
-          
-          <Route  path="/slike/ostalo">
-            <p>ostalo</p>
+
+          <Route path="/slike/ostalo">
+            <OstaleSlike />
           </Route>
 
 
@@ -118,7 +124,7 @@ function Navigation() {
             <Product />
           </Route>
         </Switch>
- 
+
 
       </Router>
     </div>
