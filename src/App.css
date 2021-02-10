@@ -9,6 +9,68 @@
   box-sizing: border-box;
 }
 
+.form {
+  display: flex;
+  position: fixed;
+  text-align: center;  
+  flex-direction: row;
+  justify-content: center;
+  background-color: #1E1F1B;
+  padding: 100px 10px;
+  margin-top: -100px;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+}
+
+.all-inputs {
+  width: 300px;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  border-radius: 20px;
+  border: none;
+  color: white;
+}
+
+.open-btn {
+  background-color: #2a2a72;
+  background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+  border-radius: 100%;
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 50px;
+  border: none;
+  border-radius: 100%;
+  background: none;
+  color: white;
+  font-size: 25px;
+}
+
+.input {
+  width: 200px;
+  margin: 20px 0;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background-color: #d6d6d6;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
 body, html {
   background-color: #1E1F1B;
 }
