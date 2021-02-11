@@ -12,13 +12,13 @@ function AbonosStolovi() {
 
   const toggleForm = () => setIsopen(!isOpen)
 
-
+console.log(slike)
 
   const sendData = e => {
     e.preventDefault()
     const formData = new FormData()
     for (let i = 0; i < slike.length; i++) {
-      formData.append("images", slike[i])
+      formData.append("image", slike[i])
     }
 
     console.log(slike)
