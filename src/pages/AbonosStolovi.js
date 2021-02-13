@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 function AbonosStolovi() {
@@ -15,6 +15,12 @@ function AbonosStolovi() {
 
 
   const toggleForm = () => setIsopen(!isOpen)
+
+
+
+  useEffect(()=>{
+    
+  },[])
 
 
   const sendData = e => {
