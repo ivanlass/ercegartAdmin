@@ -1,37 +1,54 @@
+import React, {useState, useEffect} from 'react'
 import '../Card.css'
 import Carousels from '../components/Carousel';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import {useParams} from "react-router-dom";
 
 function Product() {
+    const [product, setProduct] = useState(null)
+    let { id } = useParams();
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/products/findone', {
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({query:id}),
+        })
+        .then(response => response.json())
+        .then(data => {
+          setProduct(data)
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      },[])
+
+
+
+
   return (
+      <>
+     {product &&
     <div className="product">
         <div>
-        <Carousels />
+        <Carousels slike={product.slike}/>
         </div>
         <br/>
         <Container>
 
             <Row>
                 <Col lg="4" className="product-info-sm">
-                    <p>HELENA</p>
-                    <p className="product-price">650 €</p>
+                    <p>{product.name}</p>
                 </Col>
                 <Col className="product-info-big">
                     <p className="materials-title">Materijali</p>
-                    <p className="materials-item">Drvo</p>
-                    <p className="materials-item">Aluminij</p>
-                    <p className="materials-item">Epoxy smola</p>
+                    <p className="materials-item">{product.materijali}</p>
                     <p className="materials-title">Opis</p>
-                    <p className="product-about">Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis 
-                    et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-                    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem 
-                    sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                    adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam 
-                    aliquam quaerat voluptatem. 
-                    Ut enim ad minima veniam,</p>
+                    <p className="product-about">{product.opis}</p>
                 </Col>
 
 
@@ -40,6 +57,8 @@ function Product() {
    
         
     </div>
+    }
+  </>
   );
 }
 

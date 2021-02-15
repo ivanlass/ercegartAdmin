@@ -6,17 +6,16 @@ import {Link} from "react-router-dom";
 
 
 
-function Card() {
+function Card(props) {
 
 
 
   return (
-    <Link to="/furniture/helena">
+    <Link to={'/furniture/'+props.product._id}>
     <div className="card-item" >
-      <div className="card-picture" style={{backgroundImage: `url(${patio})`}} ></div>
+      <div className="card-picture" style={{backgroundImage: `url(${props.product.slike[0].path})`}} ></div>
       <div className="card-info-wrapper">
-        <p>HELENA</p>
-        <p>650 €</p>
+        <p>{props.product.name}</p>
       </div>
     </div>
     </Link>

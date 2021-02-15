@@ -3,9 +3,10 @@ import Card from '../components/Card'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import { toast } from 'react-toastify';
-
+import '../App.css'
 
 function AbonosStolovi() {
+  const [products, setProducts] = useState(null)
   const [isOpen, setIsopen] = useState(false)
   const [name, setName] = useState("")
   const [materijali, setMaterijali] = useState("")
@@ -17,9 +18,43 @@ function AbonosStolovi() {
   const toggleForm = () => setIsopen(!isOpen)
 
 
+  const deleteProduct = (e) => {
+    fetch('http://localhost:5000/products/delete', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({query:e.currentTarget.dataset.id}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      setProducts(data)
+      toast("Obrisano");
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
+
 
   useEffect(()=>{
-    
+    fetch('http://localhost:5000/products', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({query:"abonosStolovi"}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      setProducts(data)
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   },[])
 
 
@@ -77,10 +112,14 @@ function AbonosStolovi() {
         </form>
       }
       <div className="gallery">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {products&& products.map(product=>{
+          return (
+            <div className="card-wrapper">
+              <button className="delete-btn" onClick={deleteProduct} data-id={product._id}>X</button>
+              <Card product={product} key={product._id}/>
+            </div>
+          )
+        })}
       </div>
     </>
   );

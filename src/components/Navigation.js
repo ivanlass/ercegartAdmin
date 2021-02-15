@@ -120,7 +120,7 @@ function Navigation() {
             <Contact />
           </Route>
 
-          <Route path="/furniture/helena">
+          <Route path="/furniture/:id">
             <Product />
           </Route>
         </Switch>

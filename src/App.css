@@ -27,6 +27,26 @@
   width: 300px;
 }
 
+.card-wrapper {
+  position: relative;
+}
+
+.card-wrapper:hover .delete-btn {
+  display: block;
+}
+
+.delete-btn {
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  background: white;
+  border: none;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+}
+
 .form-button {
   display: block;
   width: 100%;

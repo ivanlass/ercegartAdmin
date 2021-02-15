@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import patio from '../images/patio.jpg'
 import "../Card.css"
 
-function Carousels() {
+function Carousels(props) {
     const [index, setIndex] = useState(0);
   
     const handleSelect = (selectedIndex, e) => {
@@ -13,30 +13,19 @@ function Carousels() {
     return (
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel-wrapper">
 
+      {props.slike&& props.slike.map(slika => {
+        return (         
         <Carousel.Item>
         <img
             className="d-block w-100 carousel-img"
-            src={patio}
+            src={slika.path}
             alt="Second slide"
           />
         </Carousel.Item>
+         )
+      })}
 
-        <Carousel.Item>
-          <img
-            className="d-block w-100 carousel-img"
-            src={patio}
-            alt="Second slide"
-          />
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="d-block w-100 carousel-img"
-            src={patio}
-            alt="Third slide"
-          />
-        </Carousel.Item>
-
+     
       </Carousel>
     );
   }
