@@ -15,7 +15,7 @@ function Card(props) {
     <div className="card-item" >
       <div className="card-picture" style={{backgroundImage: `url(${props.product.slike[0].path})`}} ></div>
       <div className="card-info-wrapper">
-        <p>{props.product.name}</p>
+        <p>{props.product.name.hr}</p>
       </div>
     </div>
     </Link>

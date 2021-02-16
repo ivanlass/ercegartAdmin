@@ -11,7 +11,7 @@
 
 .form {
   display: flex;
-  position: fixed;
+  position: absolute;
   text-align: center;  
   flex-direction: row;
   justify-content: center;
@@ -83,11 +83,11 @@
 }
 
 .input {
-  width: 200px;
+  width: 300px;
   margin: 20px 0;
   border-radius: 10px;
   padding: 6px 10px;
-  background-color: #d6d6d6;
+  background-color: #e6e6e6;
   border: none;
 }
 
