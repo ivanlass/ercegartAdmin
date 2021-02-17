@@ -22,7 +22,7 @@ function AbonosUkras() {
 
 
   const deleteProduct = (e) => {
-    fetch('http://localhost:5000/products/delete', {
+    fetch('https://ercegart.herokuapp.com/products/delete', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function AbonosUkras() {
 
 
   useEffect(()=>{
-    fetch('http://localhost:5000/products', {
+    fetch('https://ercegart.herokuapp.com/products', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ function AbonosUkras() {
         'content-type': 'multipart/form-data'
       }
     };
-    fetch('http://localhost:5000/products/add', {
+    fetch('https://ercegart.herokuapp.com/products/add', {
       method: 'POST',
       body: formData
     })

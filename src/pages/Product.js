@@ -11,7 +11,7 @@ function Product() {
     let { id } = useParams();
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products/findone', {
+        fetch('https://ercegart.herokuapp.com/products/findone', {
           method: 'POST', // or 'PUT'
           headers: {
             'Content-Type': 'application/json',
@@ -42,13 +42,13 @@ function Product() {
 
             <Row>
                 <Col lg="4" className="product-info-sm">
-                    <p>{product.name}</p>
+                    <p>{product.name.hr}</p>
                 </Col>
                 <Col className="product-info-big">
                     <p className="materials-title">Materijali</p>
-                    <p className="materials-item">{product.materijali}</p>
+                    <p className="materials-item">{product.materijali.hr}</p>
                     <p className="materials-title">Opis</p>
-                    <p className="product-about">{product.opis}</p>
+                    <p className="product-about">{product.opis.hr}</p>
                 </Col>
 
 

@@ -22,7 +22,7 @@ function AbonosStolovi() {
 
 
   const deleteProduct = (e) => {
-    fetch('http://localhost:5000/products/delete', {
+    fetch('https://ercegart.herokuapp.com/products/delete', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
