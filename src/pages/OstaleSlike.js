@@ -39,7 +39,7 @@ function OstaleSlike() {
   };
 
   useEffect(() => {
-    fetch("https://ercegbackend-c42jv.ondigitalocean.app/products", {
+    fetch("https://ercegartapi.ew.r.appspot.com/products", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -59,43 +59,60 @@ function OstaleSlike() {
   const sendData = (e) => {
     e.preventDefault();
     setIsDisabled(!isDisabled);
+  
     const formData = new FormData();
+    const promises = [];
+  
     for (let i = 0; i < slike.length; i++) {
-      formData.append("image", slike[i]);
+      const reader = new FileReader();
+      const file = slike[i];
+      promises.push(
+        new Promise((resolve, reject) => {
+          reader.onload = (event) => {
+            const buffer = event.target.result;
+            const contentType = file.type; // Get the content type from the file
+            const blob = new Blob([buffer], { type: contentType });
+            formData.append(`image${i}`, blob, file.name); // Use blob instead of buffer
+            resolve();
+          };
+          reader.onerror = (error) => reject(error);
+          reader.readAsArrayBuffer(file);
+        })
+      );
     }
-
-    console.log(slike);
-    formData.append("name", name);
-    formData.append("materijali", materijali);
-    formData.append("opis", opis);
-    formData.append("kategorija", "ostaleSlike");
-    formData.append("nameEn", nameEn);
-    formData.append("materijaliEn", materijaliEn);
-    formData.append("opisEn", opisEn);
-
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
-    fetch("https://ercegbackend-c42jv.ondigitalocean.app/products/add", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        setIsDisabled(false);
-        setName("");
-        setNameEn("");
-        setOpis("");
-        setOpisEn("");
-        setMaterijali("");
-        setMaterijaliEn("");
-        toast("Dodano ne sekiraj se nista.");
-        console.log("Success:", result);
+  
+    Promise.all(promises)
+      .then(() => {
+        formData.append("name", name);
+        formData.append("materijali", materijali);
+        formData.append("opis", opis);
+        formData.append("kategorija", "ostaleSlike");
+        formData.append("nameEn", nameEn);
+        formData.append("materijaliEn", materijaliEn);
+        formData.append("opisEn", opisEn);
+  
+        fetch("https://ercegartapi.ew.r.appspot.com/products/add", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            setIsDisabled(false);
+            setName("");
+            setNameEn("");
+            setOpis("");
+            setOpisEn("");
+            setMaterijali("");
+            setMaterijaliEn("");
+            toast("Dodano ne sekiraj se nista.");
+            console.log("Success:", result);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error reading file:", error);
       });
   };
 
